@@ -1,11 +1,26 @@
-import React from 'react'
+import Header from '@/components/shared/Header'
 
-const AddTransformationTypePage = () => {
+import { transformationTypes } from '@/constants'
+import { getUserById } from '@/lib/actions/user.actions';
+import { auth } from '@clerk/nextjs';
+import { redirect } from 'next/navigation';
+
+const AddTransformationTypePage = async ({ params: { type } }: SearchParamProps) => {
+
+  const transformation = transformationTypes[type];
+
+ 
+
   return (
-    <div>
+    <>
+      <Header 
+        title={transformation.title}
+        subTitle={transformation.subTitle}
+      />
+    
       
-    </div>
-  )
+    </>
+  );
 }
 
-export default AddTransformationTypePage
+export default AddTransformationTypePage;
